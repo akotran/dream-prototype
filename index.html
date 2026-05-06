@@ -1,0 +1,867 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>DREAM Charter Schools — Play. Learn. Grow.</title>
+<meta name="description" content="DREAM ensures that all young people recognize their potential and realize their dreams. Free, public PreK–12 charter schools in East Harlem and the Bronx." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Archivo:wght@400;500;600;700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --red: #E40521;
+    --red-dark: #B0001A;
+    --red-soft: #FFE3E6;
+    --ink: #0E0E10;
+    --ink-2: #1B1B1F;
+    --paper: #FAF8F5;
+    --paper-2: #F2EEE8;
+    --rule: rgba(14,14,16,.12);
+    --muted: #5A5A60;
+    --gold: #F0B429;
+    --shadow-1: 0 1px 2px rgba(0,0,0,.04), 0 8px 24px rgba(0,0,0,.06);
+    --shadow-2: 0 12px 40px rgba(228,5,33,.22);
+  }
+
+  *, *::before, *::after { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    color: var(--ink);
+    background: var(--paper);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
+  }
+  img { max-width: 100%; display: block; }
+  a { color: inherit; text-decoration: none; }
+  button { font-family: inherit; cursor: pointer; border: none; }
+
+  .display { font-family: 'Archivo Black', 'Archivo', sans-serif; font-weight: 900; letter-spacing: -.01em; line-height: .95; text-transform: uppercase; }
+  .eyebrow { font-family: 'Archivo', sans-serif; font-weight: 800; text-transform: uppercase; letter-spacing: .14em; font-size: 12px; color: var(--red); }
+  .container { width: min(1240px, 92vw); margin: 0 inline; margin-inline: auto; }
+
+  /* ============== NAV ============== */
+  .nav {
+    position: sticky; top: 0; z-index: 50;
+    background: rgba(250, 248, 245, .85);
+    backdrop-filter: saturate(160%) blur(14px);
+    -webkit-backdrop-filter: saturate(160%) blur(14px);
+    border-bottom: 1px solid var(--rule);
+    transition: background .25s ease, box-shadow .25s ease;
+  }
+  .nav.scrolled { background: rgba(255,255,255,.95); box-shadow: 0 1px 0 var(--rule); }
+  .nav-inner {
+    width: min(1240px, 92vw); margin-inline: auto;
+    display: flex; align-items: center; gap: 24px; padding: 14px 0;
+  }
+  .brand { display: flex; align-items: center; gap: 12px; min-width: 0; }
+  .brand-mark { width: 38px; height: 38px; flex: 0 0 38px; }
+  .brand-word { font-family: 'Archivo Black'; font-size: 22px; letter-spacing: .04em; }
+  .brand-tag {
+    display: none; font-weight: 800; letter-spacing: .22em; font-size: 10px; color: var(--red);
+    border-left: 2px solid var(--red); padding-left: 10px; margin-left: 4px;
+  }
+  @media (min-width: 760px){ .brand-tag { display: inline-flex; gap: 6px; } }
+  .nav-links { display: none; gap: 22px; margin-left: auto; font-weight: 600; font-size: 14px; }
+  .nav-links a { padding: 6px 2px; position: relative; color: var(--ink-2); }
+  .nav-links a::after { content: ""; position: absolute; left: 0; right: 100%; bottom: -2px; height: 2px; background: var(--red); transition: right .25s ease; }
+  .nav-links a:hover::after { right: 0; }
+  @media (min-width: 980px){ .nav-links { display: flex; } }
+  .nav-cta {
+    margin-left: auto; display: inline-flex; align-items: center; gap: 8px;
+    background: var(--red); color: white; padding: 11px 18px; border-radius: 999px;
+    font-weight: 800; letter-spacing: .04em; text-transform: uppercase; font-size: 12px;
+    transition: transform .15s ease, background .15s ease, box-shadow .15s ease;
+    box-shadow: var(--shadow-2);
+  }
+  @media (min-width: 980px){ .nav-cta { margin-left: 8px; } }
+  .nav-cta:hover { background: var(--red-dark); transform: translateY(-1px); }
+
+  /* ============== HERO ============== */
+  .hero {
+    position: relative; padding: 64px 0 48px;
+    background:
+      radial-gradient(1100px 480px at 90% -10%, rgba(228,5,33,.10), transparent 60%),
+      radial-gradient(900px 420px at -10% 30%, rgba(228,5,33,.06), transparent 60%),
+      var(--paper);
+    overflow: hidden;
+  }
+  .hero-grid {
+    width: min(1240px, 92vw); margin-inline: auto;
+    display: grid; grid-template-columns: 1fr; gap: 36px; align-items: center;
+  }
+  @media (min-width: 980px){
+    .hero-grid { grid-template-columns: 1.05fr .95fr; gap: 60px; padding: 36px 0 24px; }
+  }
+  .hero-eyebrow { display: inline-flex; align-items: center; gap: 10px; padding: 8px 14px; border-radius: 999px; background: var(--red-soft); color: var(--red); font-weight: 800; font-size: 11px; letter-spacing: .18em; text-transform: uppercase; }
+  .hero-eyebrow .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--red); animation: pulse 1.6s infinite; }
+  @keyframes pulse { 0%,100% { transform: scale(1); opacity: 1 } 50% { transform: scale(1.4); opacity: .55 } }
+
+  .hero-title {
+    font-family: 'Archivo Black'; font-size: clamp(56px, 11vw, 152px); line-height: .86;
+    letter-spacing: -.025em; margin: 18px 0 8px; text-transform: uppercase;
+  }
+  .hero-title .stroke {
+    -webkit-text-stroke: 2px var(--ink); color: transparent; display: inline-block;
+  }
+  .hero-title .red { color: var(--red); display: inline-block; }
+  .hero-title span { display: inline-block; transform: translateY(20px); opacity: 0; animation: rise .8s cubic-bezier(.2,.8,.25,1) forwards; }
+  .hero-title span:nth-child(1){ animation-delay: .05s }
+  .hero-title span:nth-child(2){ animation-delay: .18s }
+  .hero-title span:nth-child(3){ animation-delay: .31s }
+  @keyframes rise { to { transform: translateY(0); opacity: 1 } }
+
+  .hero-tag-row {
+    display: flex; align-items: center; gap: 16px; flex-wrap: wrap;
+    font-family: 'Archivo Black'; font-size: 18px; letter-spacing: .26em;
+    color: var(--ink); text-transform: uppercase; margin: 6px 0 22px;
+  }
+  .hero-tag-row .pill { background: var(--red); color: white; padding: 6px 12px; border-radius: 6px; }
+
+  .hero-lead {
+    font-size: clamp(16px, 1.5vw, 19px); color: var(--ink-2); max-width: 560px; line-height: 1.55;
+    margin-bottom: 28px;
+  }
+
+  .hero-ctas { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 34px; }
+  .btn-primary, .btn-ghost {
+    display: inline-flex; align-items: center; gap: 10px; padding: 14px 22px;
+    border-radius: 999px; font-weight: 800; letter-spacing: .06em; text-transform: uppercase; font-size: 13px;
+    transition: transform .15s ease, background .15s ease, color .15s ease, border-color .15s ease;
+  }
+  .btn-primary { background: var(--ink); color: white; box-shadow: var(--shadow-1); }
+  .btn-primary:hover { background: var(--red); transform: translateY(-1px); }
+  .btn-ghost { background: transparent; color: var(--ink); border: 2px solid var(--ink); }
+  .btn-ghost:hover { background: var(--ink); color: white; }
+  .btn-arrow { transition: transform .15s ease; }
+  .btn-primary:hover .btn-arrow, .btn-ghost:hover .btn-arrow { transform: translateX(3px); }
+
+  .hero-meta {
+    display: flex; gap: 24px; flex-wrap: wrap; padding-top: 22px; border-top: 1px solid var(--rule);
+    color: var(--muted); font-size: 13px;
+  }
+  .hero-meta strong { color: var(--ink); display: block; font-size: 22px; font-family: 'Archivo Black'; }
+
+  /* Hero visual */
+  .hero-visual {
+    position: relative; min-height: 460px;
+    display: grid; grid-template-columns: repeat(6, 1fr); grid-template-rows: repeat(6, 1fr);
+    gap: 12px;
+  }
+  .tile {
+    border-radius: 18px; overflow: hidden; position: relative; background: var(--paper-2);
+    box-shadow: var(--shadow-1);
+    transform: translateY(20px); opacity: 0;
+    animation: rise .9s cubic-bezier(.2,.8,.25,1) forwards;
+  }
+  .tile.t1 { grid-column: 1/4; grid-row: 1/5; background: linear-gradient(135deg, #f6c5c5, #E40521); animation-delay: .1s; }
+  .tile.t2 { grid-column: 4/7; grid-row: 1/3; background: linear-gradient(135deg, #ffd6dc, #ff7a7a); animation-delay: .25s; }
+  .tile.t3 { grid-column: 4/7; grid-row: 3/5; background: linear-gradient(135deg, #1B1B1F, #3a3a45); color: white; animation-delay: .4s; }
+  .tile.t4 { grid-column: 1/4; grid-row: 5/7; background: linear-gradient(135deg, #fff7e0, #f0b429); animation-delay: .55s; }
+  .tile.t5 { grid-column: 4/7; grid-row: 5/7; background: linear-gradient(135deg, #ffe3e6, #fdd1d6); animation-delay: .7s; }
+  .tile-content {
+    position: absolute; inset: 0; display: flex; flex-direction: column; justify-content: space-between;
+    padding: 18px;
+  }
+  .tile-label { font-size: 11px; font-weight: 800; letter-spacing: .18em; text-transform: uppercase; opacity: .85; }
+  .tile-value { font-family: 'Archivo Black'; font-size: clamp(28px, 3vw, 44px); line-height: .9; }
+  .tile-sub { font-size: 12px; opacity: .9; max-width: 90%; line-height: 1.35; }
+
+  .tile.logo {
+    background: var(--ink);
+    color: white;
+    display: grid; place-items: center;
+  }
+  .tile.logo svg { width: 64%; height: auto; }
+
+  /* ============== TICKER ============== */
+  .ticker {
+    background: var(--ink); color: var(--paper);
+    overflow: hidden; padding: 14px 0; border-block: 4px solid var(--red);
+  }
+  .ticker-track {
+    display: flex; gap: 56px; white-space: nowrap; will-change: transform;
+    animation: marquee 38s linear infinite;
+    font-family: 'Archivo Black'; text-transform: uppercase; letter-spacing: .04em;
+    font-size: clamp(18px, 2.4vw, 28px);
+  }
+  .ticker-track span { display: inline-flex; align-items: center; gap: 24px; }
+  .ticker-track i { display: inline-block; width: 14px; height: 14px; background: var(--red); border-radius: 2px; transform: rotate(45deg); }
+  @keyframes marquee { from { transform: translateX(0) } to { transform: translateX(-50%) } }
+
+  /* ============== SECTION SHELL ============== */
+  section { padding: 88px 0; }
+  section.tight { padding: 64px 0; }
+  .section-head { display: grid; grid-template-columns: 1fr; gap: 14px; max-width: 760px; margin-bottom: 44px; }
+  .section-head h2 { font-family: 'Archivo Black'; font-size: clamp(34px, 4.6vw, 60px); line-height: .98; letter-spacing: -.01em; margin: 6px 0 0; text-transform: uppercase; }
+  .section-head p { font-size: 17px; color: var(--ink-2); line-height: 1.55; max-width: 640px; margin: 0; }
+
+  /* ============== STATS ============== */
+  .stats {
+    background: var(--ink);
+    color: var(--paper);
+    border-block: 1px solid var(--ink);
+  }
+  .stats .container { display: grid; grid-template-columns: repeat(2, 1fr); gap: 0; }
+  @media (min-width: 760px){ .stats .container { grid-template-columns: repeat(4, 1fr); } }
+  .stat {
+    padding: 36px 22px; border-right: 1px solid rgba(255,255,255,.1); border-bottom: 1px solid rgba(255,255,255,.1);
+  }
+  .stats .container > .stat:last-child { border-right: 0; }
+  @media (min-width: 760px){ .stats .container > .stat:nth-child(4n) { border-right: 0; } }
+  .stat .num { font-family: 'Archivo Black'; font-size: clamp(54px, 7vw, 96px); line-height: 1; color: var(--red); }
+  .stat .num small { font-size: .55em; color: var(--paper); }
+  .stat .lab { margin-top: 10px; font-size: 14px; color: rgba(255,255,255,.78); line-height: 1.4; }
+
+  /* ============== MAXIMS ============== */
+  .maxims-bg { background: var(--paper); }
+  .maxims {
+    display: grid; gap: 18px;
+    grid-template-columns: 1fr;
+  }
+  @media (min-width: 700px){ .maxims { grid-template-columns: repeat(2, 1fr); } }
+  @media (min-width: 1020px){ .maxims { grid-template-columns: repeat(3, 1fr); } }
+
+  .maxim {
+    position: relative; background: white; border: 1px solid var(--rule);
+    border-radius: 24px; padding: 28px; min-height: 240px;
+    display: flex; flex-direction: column; justify-content: space-between;
+    transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease, background .25s ease;
+    overflow: hidden;
+  }
+  .maxim::before {
+    content: ""; position: absolute; inset: auto -40% -60% auto;
+    width: 220px; height: 220px; background: var(--red); border-radius: 50%;
+    transform: scale(0); transition: transform .45s cubic-bezier(.2,.8,.25,1); opacity: .12;
+  }
+  .maxim:hover { transform: translateY(-4px); border-color: transparent; box-shadow: var(--shadow-1); }
+  .maxim:hover::before { transform: scale(2); }
+  .maxim .num {
+    font-family: 'Archivo Black'; font-size: 22px; color: var(--red); letter-spacing: .04em;
+  }
+  .maxim h3 { font-family: 'Archivo Black'; font-size: 26px; margin: 12px 0 10px; line-height: 1; text-transform: uppercase; }
+  .maxim p { color: var(--ink-2); line-height: 1.55; font-size: 14.5px; margin: 0; position: relative; z-index: 1; }
+
+  /* ============== SCHOOLS ============== */
+  .schools-bg {
+    background:
+      radial-gradient(800px 320px at 90% 10%, rgba(228,5,33,.09), transparent 60%),
+      var(--paper-2);
+  }
+  .schools {
+    display: grid; grid-template-columns: 1fr; gap: 14px;
+  }
+  @media (min-width: 740px){ .schools { grid-template-columns: repeat(2, 1fr); } }
+  @media (min-width: 1100px){ .schools { grid-template-columns: repeat(4, 1fr); } }
+
+  .school-card {
+    background: white; border-radius: 18px; padding: 22px; border: 1px solid var(--rule);
+    display: flex; flex-direction: column; gap: 10px;
+    transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease;
+    position: relative; overflow: hidden;
+  }
+  .school-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-1); border-color: transparent; }
+  .school-card .grade { display: inline-flex; align-self: flex-start; padding: 4px 10px; border-radius: 999px; background: var(--ink); color: white; font-weight: 800; font-size: 11px; letter-spacing: .12em; text-transform: uppercase; }
+  .school-card.eh .grade { background: var(--red); }
+  .school-card.hb .grade { background: #1f3d6b; }
+  .school-card.mh .grade { background: #2a6a40; }
+  .school-card.hs .grade { background: var(--gold); color: var(--ink); }
+  .school-card h4 { margin: 4px 0 0; font-family: 'Archivo Black'; font-size: 19px; line-height: 1.05; }
+  .school-card p { margin: 0; color: var(--muted); font-size: 13.5px; line-height: 1.5; }
+  .school-card .loc { font-size: 12px; color: var(--ink-2); display: inline-flex; align-items: center; gap: 6px; }
+  .school-card .loc::before { content: ""; width: 6px; height: 6px; background: var(--red); border-radius: 50%; }
+
+  /* ============== GRADUATE ============== */
+  .grad {
+    background: var(--ink); color: var(--paper);
+    position: relative; overflow: hidden;
+  }
+  .grad::before {
+    content: "DREAM GRAD"; position: absolute; left: -10px; top: 30%;
+    font-family: 'Archivo Black'; font-size: 200px; line-height: .85;
+    color: rgba(255,255,255,.04); white-space: nowrap; pointer-events: none;
+  }
+  .grad-grid {
+    display: grid; grid-template-columns: 1fr; gap: 36px; position: relative; z-index: 1;
+  }
+  @media (min-width: 980px){ .grad-grid { grid-template-columns: 1.1fr .9fr; gap: 72px; align-items: center; } }
+  .grad h2 { color: var(--paper); }
+  .grad-lead { font-size: 18px; line-height: 1.55; color: rgba(255,255,255,.78); max-width: 540px; }
+  .grad-numbers { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; margin-top: 28px; }
+  .grad-numbers .gn {
+    background: rgba(255,255,255,.05); border: 1px solid rgba(255,255,255,.1);
+    border-radius: 16px; padding: 20px;
+  }
+  .grad-numbers .gn .v { font-family: 'Archivo Black'; font-size: 36px; color: var(--red); line-height: 1; }
+  .grad-numbers .gn .l { margin-top: 6px; color: rgba(255,255,255,.78); font-size: 13px; }
+
+  .quote {
+    background: linear-gradient(135deg, #1f1f24, #15151a);
+    border: 1px solid rgba(255,255,255,.08);
+    border-radius: 24px; padding: 28px;
+    position: relative;
+  }
+  .quote::before {
+    content: "“"; position: absolute; top: -22px; left: 18px;
+    font-family: 'Archivo Black'; font-size: 120px; color: var(--red); line-height: 1;
+  }
+  .quote p { font-size: 17px; line-height: 1.55; color: var(--paper); margin: 6px 0 18px; }
+  .quote .by { font-weight: 700; font-size: 13px; color: rgba(255,255,255,.7); letter-spacing: .04em; }
+  .quote .by strong { color: white; display: block; font-size: 14px; }
+
+  /* ============== ALUMNI ============== */
+  .alumni-bg { background: var(--paper); }
+  .alumni-grid { display: grid; grid-template-columns: 1fr; gap: 18px; }
+  @media (min-width: 920px){ .alumni-grid { grid-template-columns: 1.4fr 1fr 1fr; } }
+  .alumni-card { background: white; border: 1px solid var(--rule); border-radius: 24px; padding: 28px; position: relative; }
+  .alumni-card.feature {
+    background: linear-gradient(135deg, var(--red), var(--red-dark));
+    color: white; border: 0; overflow: hidden;
+  }
+  .alumni-card.feature::before {
+    content: ""; position: absolute; right: -60px; top: -60px; width: 220px; height: 220px;
+    border: 18px solid rgba(255,255,255,.12); border-radius: 50%;
+  }
+  .alumni-card.feature::after {
+    content: ""; position: absolute; right: 30px; bottom: -40px; width: 120px; height: 120px;
+    background: rgba(255,255,255,.08); border-radius: 50%;
+  }
+  .alumni-card h3 { font-family: 'Archivo Black'; font-size: 26px; line-height: 1; margin: 12px 0 10px; text-transform: uppercase; }
+  .alumni-card p { font-size: 14.5px; line-height: 1.55; color: var(--ink-2); margin: 0; }
+  .alumni-card.feature p { color: rgba(255,255,255,.92); }
+  .alumni-card .tag { display: inline-block; padding: 5px 10px; border-radius: 999px; background: var(--red-soft); color: var(--red); font-weight: 800; font-size: 11px; letter-spacing: .12em; text-transform: uppercase; }
+  .alumni-card.feature .tag { background: rgba(255,255,255,.18); color: white; }
+  .alumni-list { display: grid; gap: 10px; margin-top: 18px; padding-left: 0; list-style: none; }
+  .alumni-list li { display: flex; gap: 10px; align-items: flex-start; font-size: 14px; line-height: 1.5; }
+  .alumni-list li::before { content: "→"; color: var(--red); font-weight: 800; }
+
+  /* ============== NEWS ============== */
+  .news-bg { background: var(--paper-2); }
+  .news-head-row { display: flex; justify-content: space-between; align-items: end; flex-wrap: wrap; gap: 16px; margin-bottom: 36px; }
+  .news-head-row .sub { color: var(--muted); font-size: 14px; max-width: 480px; }
+
+  .news-grid { display: grid; grid-template-columns: 1fr; gap: 18px; }
+  @media (min-width: 760px){ .news-grid { grid-template-columns: 1.6fr 1fr; } }
+  @media (min-width: 1100px){ .news-grid { grid-template-columns: 1.6fr 1fr 1fr; grid-template-rows: auto auto; } }
+
+  .news-card {
+    background: white; border-radius: 22px; padding: 26px; border: 1px solid var(--rule);
+    display: flex; flex-direction: column; gap: 14px; min-height: 260px;
+    transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease;
+    position: relative; overflow: hidden;
+  }
+  .news-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-1); border-color: transparent; }
+  .news-card .news-meta { display: flex; gap: 10px; align-items: center; font-size: 12px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+  .news-card .news-meta .src { color: var(--red); }
+  .news-card h4 { margin: 0; font-family: 'Archivo Black'; font-size: 22px; line-height: 1.05; text-transform: none; letter-spacing: -.005em; }
+  .news-card .read { margin-top: auto; font-weight: 800; font-size: 12px; letter-spacing: .14em; text-transform: uppercase; display: inline-flex; align-items: center; gap: 8px; color: var(--ink); }
+  .news-card .read .arr { transition: transform .15s ease; }
+  .news-card:hover .read .arr { transform: translateX(4px); }
+
+  .news-card.feature {
+    grid-column: span 1;
+    background: linear-gradient(165deg, #fff, #fff 60%, var(--red-soft));
+    border: 2px solid var(--red);
+  }
+  @media (min-width: 1100px){ .news-card.feature { grid-row: span 2; } }
+  .news-card.feature .badge {
+    display: inline-flex; align-items: center; gap: 8px; align-self: flex-start;
+    background: var(--red); color: white; padding: 6px 12px; border-radius: 999px;
+    font-weight: 800; font-size: 11px; letter-spacing: .14em; text-transform: uppercase;
+  }
+  .news-card.feature h4 { font-size: clamp(28px, 3vw, 38px); line-height: 1; }
+  .news-card.feature p { color: var(--ink-2); font-size: 15px; line-height: 1.55; margin: 0; }
+
+  /* Decorative shapes inside news feature */
+  .news-card.feature::after {
+    content: ""; position: absolute; right: -40px; bottom: -40px; width: 200px; height: 200px;
+    background: radial-gradient(circle, var(--red) 0%, transparent 70%); opacity: .08; pointer-events: none;
+  }
+
+  /* Press releases / awards extra */
+  .pr-row { margin-top: 36px; display: grid; grid-template-columns: 1fr; gap: 12px; }
+  @media (min-width: 760px){ .pr-row { grid-template-columns: repeat(3, 1fr); } }
+  .pr-item { background: white; border-radius: 14px; padding: 16px 18px; border: 1px solid var(--rule); display: flex; gap: 14px; align-items: flex-start; }
+  .pr-item .date { color: var(--red); font-weight: 800; font-size: 11px; letter-spacing: .12em; text-transform: uppercase; min-width: 78px; }
+  .pr-item .text { font-size: 14px; line-height: 1.45; color: var(--ink-2); }
+
+  /* ============== CTA STRIP ============== */
+  .cta-strip {
+    background: var(--red); color: white; padding: 56px 0;
+    position: relative; overflow: hidden;
+  }
+  .cta-strip::before {
+    content: ""; position: absolute; left: -120px; top: -120px; width: 320px; height: 320px;
+    border: 28px solid rgba(255,255,255,.12); border-radius: 50%;
+  }
+  .cta-strip::after {
+    content: ""; position: absolute; right: -80px; bottom: -100px; width: 240px; height: 240px;
+    background: rgba(255,255,255,.08); border-radius: 50%;
+  }
+  .cta-strip .container { display: grid; grid-template-columns: 1fr; gap: 24px; align-items: center; position: relative; z-index: 1; }
+  @media (min-width: 880px){ .cta-strip .container { grid-template-columns: 1fr auto; gap: 36px; } }
+  .cta-strip h2 { font-family: 'Archivo Black'; font-size: clamp(32px, 4.4vw, 56px); line-height: .98; letter-spacing: -.01em; margin: 0; text-transform: uppercase; }
+  .cta-strip p { margin: 8px 0 0; max-width: 620px; color: rgba(255,255,255,.92); font-size: 16px; line-height: 1.55; }
+  .cta-strip .btn-light {
+    display: inline-flex; align-items: center; gap: 10px; background: white; color: var(--red);
+    padding: 16px 26px; border-radius: 999px; font-weight: 900; letter-spacing: .06em; text-transform: uppercase; font-size: 13px;
+    transition: transform .15s ease, background .15s ease, color .15s ease;
+    box-shadow: 0 12px 28px rgba(0,0,0,.18);
+  }
+  .cta-strip .btn-light:hover { background: var(--ink); color: white; transform: translateY(-1px); }
+
+  /* ============== FOOTER ============== */
+  footer {
+    background: var(--ink); color: rgba(255,255,255,.7); padding: 48px 0 28px; font-size: 13.5px;
+  }
+  .foot-grid { display: grid; grid-template-columns: 1fr; gap: 28px; }
+  @media (min-width: 760px){ .foot-grid { grid-template-columns: 1.4fr 1fr 1fr 1fr; } }
+  .foot-grid h5 { color: white; font-family: 'Archivo Black'; font-size: 13px; letter-spacing: .14em; text-transform: uppercase; margin: 0 0 10px; }
+  .foot-grid a { display: block; padding: 4px 0; color: rgba(255,255,255,.78); }
+  .foot-grid a:hover { color: var(--red); }
+  .foot-bottom { margin-top: 32px; padding-top: 20px; border-top: 1px solid rgba(255,255,255,.1); display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px; color: rgba(255,255,255,.6); }
+
+  /* Reveal animation */
+  .reveal { opacity: 0; transform: translateY(28px); transition: opacity .8s cubic-bezier(.2,.8,.25,1), transform .8s cubic-bezier(.2,.8,.25,1); }
+  .reveal.in { opacity: 1; transform: none; }
+
+  /* small util */
+  .tag-row { display: flex; gap: 8px; flex-wrap: wrap; }
+  .chip { background: var(--paper-2); border: 1px solid var(--rule); padding: 6px 11px; border-radius: 999px; font-size: 12px; font-weight: 600; color: var(--ink-2); }
+</style>
+</head>
+<body>
+
+<!-- ============== NAV ============== -->
+<header class="nav" id="nav">
+  <div class="nav-inner">
+    <a class="brand" href="#top" aria-label="DREAM home">
+      <svg class="brand-mark" viewBox="0 0 64 64" aria-hidden="true">
+        <path d="M4 12 H60 V36 L32 60 L4 36 Z" fill="none" stroke="#E40521" stroke-width="6" stroke-linejoin="round"/>
+        <path d="M4 12 H60 V20 H4 Z" fill="#E40521"/>
+      </svg>
+      <span class="brand-word">DREAM</span>
+      <span class="brand-tag"><i>PLAY</i> · <i>LEARN</i> · <i>GROW</i></span>
+    </a>
+    <nav class="nav-links" aria-label="Primary">
+      <a href="#mission">Mission</a>
+      <a href="#schools">Schools</a>
+      <a href="#outcomes">Outcomes</a>
+      <a href="#graduate">Graduates</a>
+      <a href="#alumni">Alumni</a>
+      <a href="#news">In the News</a>
+    </nav>
+    <a class="nav-cta" href="#enroll">Apply for Fall 2026 →</a>
+  </div>
+</header>
+
+<!-- ============== HERO ============== -->
+<main id="top">
+<section class="hero">
+  <div class="hero-grid">
+    <div>
+      <span class="hero-eyebrow"><span class="dot"></span> Now enrolling — PreK through 12 · Fall 2026</span>
+      <h1 class="hero-title">
+        <span class="red">DREAM</span><br/>
+        <span class="stroke">BIG.</span><br/>
+        <span>BUILD&nbsp;BIGGER.</span>
+      </h1>
+      <div class="hero-tag-row">
+        <span class="pill">PLAY</span>
+        <span>LEARN</span>
+        <span class="pill">GROW</span>
+      </div>
+      <p class="hero-lead">
+        DREAM ensures that all young people recognize their potential and realize their dreams. We're a network of free, public charter schools in <strong>East Harlem</strong> and the <strong>Bronx</strong>, investing in the whole child from early childhood to early adulthood.
+      </p>
+      <div class="hero-ctas">
+        <a class="btn-primary" href="#enroll">Enroll today <span class="btn-arrow">→</span></a>
+        <a class="btn-ghost" href="#mission">Explore our model <span class="btn-arrow">→</span></a>
+      </div>
+      <div class="hero-meta">
+        <div><strong>35</strong> Years of impact</div>
+        <div><strong>3,000+</strong> Students served</div>
+        <div><strong>8</strong> Schools across NYC</div>
+      </div>
+    </div>
+
+    <div class="hero-visual" aria-hidden="true">
+      <div class="tile t1">
+        <div class="tile-content">
+          <span class="tile-label" style="color:#fff;opacity:.95">Mission</span>
+          <div style="color:#fff">
+            <div class="tile-value">All&nbsp;kids<br/>can.</div>
+            <div class="tile-sub" style="margin-top:8px">This kid can.</div>
+          </div>
+        </div>
+      </div>
+      <div class="tile t2">
+        <div class="tile-content">
+          <span class="tile-label">Class of 2025</span>
+          <div>
+            <div class="tile-value" style="color:#7d0a17">87%</div>
+            <div class="tile-sub" style="color:#5a050d">attend college after DREAM</div>
+          </div>
+        </div>
+      </div>
+      <div class="tile t3 logo">
+        <svg viewBox="0 0 200 200" aria-hidden="true">
+          <path d="M14 30 H186 V108 L100 188 L14 108 Z" fill="none" stroke="#E40521" stroke-width="14" stroke-linejoin="round"/>
+          <path d="M14 30 H186 V58 H14 Z" fill="#E40521"/>
+          <text x="100" y="48" text-anchor="middle" fill="#fff" font-family="Archivo Black" font-size="22" letter-spacing="3">DREAM</text>
+        </svg>
+      </div>
+      <div class="tile t4">
+        <div class="tile-content">
+          <span class="tile-label" style="color:#7a5400">Featured</span>
+          <div>
+            <div class="tile-value" style="color:#5b3d00">aiEDU<br/>×&nbsp;DREAM</div>
+            <div class="tile-sub" style="color:#5b3d00">AI literacy through history — new partnership</div>
+          </div>
+        </div>
+      </div>
+      <div class="tile t5">
+        <div class="tile-content">
+          <span class="tile-label" style="color:#a01524">Whole&nbsp;child</span>
+          <div>
+            <div class="tile-value" style="color:#7d0a17">$1.4M</div>
+            <div class="tile-sub" style="color:#7d0a17">in scholarships earned by Class of 2025</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============== TICKER ============== -->
+<div class="ticker" aria-hidden="true">
+  <div class="ticker-track">
+    <span>All Kids Can <i></i></span>
+    <span>This Kid Can <i></i></span>
+    <span>Play · Learn · Grow <i></i></span>
+    <span>DREAM is Family <i></i></span>
+    <span>Teamwork Makes the DREAM Work <i></i></span>
+    <span>Fail · Persist · Exceed <i></i></span>
+    <span>All Kids Can <i></i></span>
+    <span>This Kid Can <i></i></span>
+    <span>Play · Learn · Grow <i></i></span>
+    <span>DREAM is Family <i></i></span>
+    <span>Teamwork Makes the DREAM Work <i></i></span>
+    <span>Fail · Persist · Exceed <i></i></span>
+  </div>
+</div>
+
+<!-- ============== MISSION & MAXIMS ============== -->
+<section id="mission" class="maxims-bg">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">Our Mission &amp; Maxims</span>
+      <h2>Six beliefs that<br/>drive everything we do.</h2>
+      <p>DREAM's mission fuels our "why," serving as the overarching purpose of our work. Our maxims build on it — they're the core beliefs that guide everyday practice, from the kindergarten cafeteria to the senior portfolio defense.</p>
+    </div>
+
+    <div class="maxims">
+      <article class="maxim reveal">
+        <div>
+          <span class="num">01</span>
+          <h3>All kids can.<br/>This kid can.</h3>
+        </div>
+        <p>We hold confidence in every child's capacity — especially when broader society limits opportunity. We tailor support to meet individual needs, equipping students with the resources to turn aspirations into achievements.</p>
+      </article>
+      <article class="maxim reveal">
+        <div>
+          <span class="num">02</span>
+          <h3>DREAM is family.</h3>
+        </div>
+        <p>Beyond our roles as students, educators, or staff, we form a unified community. We care for one another, especially during hardship, knowing that student success requires comprehensive support systems.</p>
+      </article>
+      <article class="maxim reveal">
+        <div>
+          <span class="num">03</span>
+          <h3>Teamwork makes the DREAM work.</h3>
+        </div>
+        <p>Collaboration and mutual inspiration drive progress. We value collective accomplishment, understanding that sustained advancement comes through coordinated effort.</p>
+      </article>
+      <article class="maxim reveal">
+        <div>
+          <span class="num">04</span>
+          <h3>Fun is a serious value.</h3>
+        </div>
+        <p>Work combines dedication with enjoyment. Our roots in youth recreation keep us celebrating achievements of all sizes — and sustaining the joy in our efforts.</p>
+      </article>
+      <article class="maxim reveal">
+        <div>
+          <span class="num">05</span>
+          <h3>DREAM big.</h3>
+        </div>
+        <p>We embrace ambitious vision and corresponding belief. From a small community initiative to a network serving thousands, our story shows what dreaming big can do.</p>
+      </article>
+      <article class="maxim reveal">
+        <div>
+          <span class="num">06</span>
+          <h3>Fail. Persist. Exceed.</h3>
+        </div>
+        <p>Excellence is a continuous journey. Drawing from baseball, we teach resilience through setbacks, learning from failures, and progressively raising performance standards.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============== STATS ============== -->
+<section class="stats tight" id="outcomes">
+  <div class="container">
+    <div class="stat reveal">
+      <div class="num"><span data-count="98">0</span><small>%</small></div>
+      <div class="lab">Graduation rate at DREAM Charter High School</div>
+    </div>
+    <div class="stat reveal">
+      <div class="num"><span data-count="87">0</span><small>%</small></div>
+      <div class="lab">Class of 2025 attending college after DREAM</div>
+    </div>
+    <div class="stat reveal">
+      <div class="num"><span data-count="70">0</span><small>%</small></div>
+      <div class="lab">First-generation college students</div>
+    </div>
+    <div class="stat reveal">
+      <div class="num"><span data-count="500">0</span><small>+</small></div>
+      <div class="lab">Alumni in the Legends Fellows program</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============== SCHOOLS ============== -->
+<section id="schools" class="schools-bg">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">Explore our schools</span>
+      <h2>Eight free, public<br/>schools. One DREAM.</h2>
+      <p>From PreK on East 100th Street to high-school portfolio defenses on Bruckner Boulevard — DREAM's schools serve more than 3,000 students across East Harlem and the Bronx, with free afterschool and summer programming at every campus.</p>
+    </div>
+
+    <div class="schools">
+      <article class="school-card eh reveal"><span class="grade">PreK</span><h4>DREAM East Harlem Pre-K</h4><span class="loc">433 East 100th Street, East Harlem</span><p>Our youngest scholars. Founded 2008.</p></article>
+      <article class="school-card eh reveal"><span class="grade">K–5</span><h4>DREAM East Harlem Elementary</h4><span class="loc">1991 2nd Avenue, East Harlem</span><p>Free afterschool and summer programming.</p></article>
+      <article class="school-card eh reveal"><span class="grade">6–8</span><h4>DREAM East Harlem Middle</h4><span class="loc">1991 2nd Avenue, East Harlem</span><p>Critically conscious curriculum and SEL.</p></article>
+      <article class="school-card hs reveal"><span class="grade">9–12</span><h4>DREAM Charter High School</h4><span class="loc">20 Bruckner Boulevard, Bronx</span><p>Founded 2017. AP, internships, portfolio defense.</p></article>
+      <article class="school-card hb reveal"><span class="grade">K–4</span><h4>DREAM Highbridge Elementary</h4><span class="loc">1162 River Ave, Bronx</span><p>Growing one grade per year.</p></article>
+      <article class="school-card hb reveal"><span class="grade">6–8</span><h4>DREAM Highbridge Middle</h4><span class="loc">1162 River Ave, Bronx</span><p>Academic rigor + sports-based wellness.</p></article>
+      <article class="school-card mh reveal"><span class="grade">K–5</span><h4>DREAM Mott Haven Elementary</h4><span class="loc">411 Bruckner Boulevard, Bronx</span><p>Founded 2019. Whole-child approach.</p></article>
+      <article class="school-card mh reveal"><span class="grade">6–8</span><h4>DREAM Mott Haven Middle</h4><span class="loc">411 Wales Avenue, Bronx</span><p>Built for early adolescence.</p></article>
+    </div>
+  </div>
+</section>
+
+<!-- ============== GRADUATE ============== -->
+<section id="graduate" class="grad">
+  <div class="container">
+    <div class="grad-grid">
+      <div class="reveal">
+        <span class="eyebrow" style="color:#ff8a96">Meet the DREAM Graduate</span>
+        <h2 style="margin-top:8px">Hard skills.<br/>Heart skills.<br/>Done together.</h2>
+        <p class="grad-lead">DREAM graduates leave with both the academic muscle and the social-emotional intelligence to lead. Every student defends a capstone portfolio, completes at least two AP classes, and has access to mentorship, internships, and college coaching long after graduation.</p>
+
+        <div class="grad-numbers">
+          <div class="gn"><div class="v">$1.4M</div><div class="l">in grants &amp; scholarships earned by the Class of 2025</div></div>
+          <div class="gn"><div class="v">2+</div><div class="l">AP classes completed by every DREAM graduate</div></div>
+          <div class="gn"><div class="v">6 yrs</div><div class="l">of post-secondary support guaranteed to alumni</div></div>
+          <div class="gn"><div class="v">100%</div><div class="l">college acceptance rate among Legends applicants</div></div>
+        </div>
+      </div>
+
+      <div class="reveal">
+        <div class="quote">
+          <p>During my formative years, DREAM shaped my character, informed my values, and changed my life. The mission influenced my desire to study education and be active in community and youth development.</p>
+          <div class="by"><strong>Isaac Yearwood</strong> DREAM '18 · Yale University '24</div>
+        </div>
+        <div class="quote" style="margin-top:14px">
+          <p>DREAM graduates recognize education as a pathway to intellectual enrichment and long-term success — plus a critical step toward building a more just and equitable world.</p>
+          <div class="by"><strong>Jared Francis</strong> Managing Director, High School &amp; Leadership Development</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============== ALUMNI / WHAT'S NEXT ============== -->
+<section id="alumni" class="alumni-bg">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">What's next · Alumni programming</span>
+      <h2>Once a Legend,<br/>always a Legend.</h2>
+      <p>DREAM alumni are called <strong>Legends</strong>. The Legends Fellows program — established in 2011 — provides graduates six guaranteed years of post-secondary support, with college coaching, near-peer mentorship, and summer bridge built in. By 2030, we'll serve nearly 1,000 Legends.</p>
+    </div>
+
+    <div class="alumni-grid">
+      <article class="alumni-card feature reveal">
+        <span class="tag">Flagship program</span>
+        <h3>Legends Fellows</h3>
+        <p>Each Legend gets a dedicated Program Coordinator, a 4-week summer bridge before freshman year, plus career workshops, networking events, internships, and mentorship throughout college.</p>
+        <ul class="alumni-list" style="color:white">
+          <li>1:1 coaching from a dedicated Program Coordinator</li>
+          <li>Summer bridge program for first-year students</li>
+          <li>Career workshops, conferences &amp; internships</li>
+          <li>Campus visits, care packages, alumni reunions</li>
+        </ul>
+      </article>
+      <article class="alumni-card reveal">
+        <span class="tag">Career pathways</span>
+        <h3>Upward Pathways</h3>
+        <p>For graduates pursuing careers without a Bachelor's degree — training, certification, mentorship, case management, and job placement support.</p>
+      </article>
+      <article class="alumni-card reveal">
+        <span class="tag">Student voice</span>
+        <h3>Alumni Council</h3>
+        <p>Recently established to represent program participants and graduates across three decades — Council members shape organizational strategy and engage the broader Legends network.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============== NEWS ============== -->
+<section id="news" class="news-bg">
+  <div class="container">
+    <div class="news-head-row reveal">
+      <div>
+        <span class="eyebrow">In the news</span>
+        <h2 class="display" style="font-size: clamp(34px, 4.6vw, 60px); margin: 8px 0 0;">DREAM in the headlines.</h2>
+      </div>
+      <div class="sub">From AI-literacy partnerships to award-winning architecture, here's where DREAM has shown up lately.</div>
+    </div>
+
+    <div class="news-grid">
+      <a class="news-card feature reveal" href="https://www.aiedu.org/aiedu-blog/building-ai-literacy-through-history-aiedu-dream-charter-schools" target="_blank" rel="noopener">
+        <span class="badge">★ Featured · April 28, 2026</span>
+        <div class="news-meta"><span class="src">aiEDU</span><span>·</span><span>Partnership announcement</span></div>
+        <h4>Building AI Literacy Through History: aiEDU + DREAM Charter Schools</h4>
+        <p>aiEDU is partnering with DREAM Charter Schools to integrate AI literacy into middle-school social studies classrooms in East Harlem and the Bronx — embedding AI concepts within history rather than as a stand-alone subject. The collaboration was sparked by Dionna Rogers, a DREAM Lead Teacher and AI Champion, with a focus on critical thinking and reaching students often left out of tech conversations.</p>
+        <span class="read">Read the announcement <span class="arr">→</span></span>
+      </a>
+
+      <a class="news-card reveal" href="https://www.nbcnewyork.com/video/news/what-happened-when-3rd-graders-wrote-their-own-policies-for-ai-in-schools/6492888/" target="_blank" rel="noopener">
+        <div class="news-meta"><span class="src">NBC News</span><span>·</span><span>Apr 21, 2026</span></div>
+        <h4>What happened when 3rd graders wrote their own policies for AI in schools</h4>
+        <span class="read">Watch the segment <span class="arr">→</span></span>
+      </a>
+
+      <a class="news-card reveal" href="https://podcasts.apple.com/us/podcast/growing-teachers-from-within-the-dream-teaching/id1488471261?i=1000757287118" target="_blank" rel="noopener">
+        <div class="news-meta"><span class="src">Apple Podcasts</span><span>·</span><span>Mar 25, 2026</span></div>
+        <h4>Growing Teachers from Within: The DREAM Teaching Fellowship</h4>
+        <span class="read">Listen to the episode <span class="arr">→</span></span>
+      </a>
+
+      <a class="news-card reveal" href="https://www.fastcompany.com/90890683/bronx-dream-school-david-adjaye" target="_blank" rel="noopener">
+        <div class="news-meta"><span class="src">Fast Company</span><span>·</span><span>May 4, 2023</span></div>
+        <h4>"A 120-year-old former factory is now the most stunning school in America"</h4>
+        <span class="read">Read the story <span class="arr">→</span></span>
+      </a>
+
+      <a class="news-card reveal" href="https://wearedream.org/our-press-and-awards/" target="_blank" rel="noopener" style="background:var(--ink); color:white; border-color:transparent;">
+        <div class="news-meta" style="color:rgba(255,255,255,.6)"><span class="src" style="color:#ff8a96">DREAM Press Room</span></div>
+        <h4 style="color:white">See every press release, award, and feature.</h4>
+        <span class="read" style="color:white">Visit the press page <span class="arr">→</span></span>
+      </a>
+    </div>
+
+    <div class="pr-row reveal" aria-label="Recent press releases">
+      <div class="pr-item"><span class="date">Mar 14, 2025</span><div class="text"><strong>Jalen Brunson</strong> commits to DREAM's Scratch Food Program.</div></div>
+      <div class="pr-item"><span class="date">Jun 11, 2024</span><div class="text">Annual Gala honors <strong>Bobby Le Blanc</strong> and <strong>Jalen Brunson</strong>.</div></div>
+      <div class="pr-item"><span class="date">Nov 9, 2023</span><div class="text">DREAM announces <strong>Brigaid partnership</strong> for school food.</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============== CTA STRIP ============== -->
+<section class="cta-strip" id="enroll">
+  <div class="container">
+    <div>
+      <h2>Ready to join the DREAM family?</h2>
+      <p>We're currently accepting applications for grades PreK–12 at all of our East Harlem and Bronx campuses. The application is free, and there are no testing requirements.</p>
+    </div>
+    <a class="btn-light" href="https://wearedream.org/enroll/" target="_blank" rel="noopener">Apply for Fall 2026 →</a>
+  </div>
+</section>
+
+</main>
+
+<!-- ============== FOOTER ============== -->
+<footer>
+  <div class="container">
+    <div class="foot-grid">
+      <div>
+        <div style="display:flex; align-items:center; gap:10px; margin-bottom:14px;">
+          <svg width="32" height="32" viewBox="0 0 64 64" aria-hidden="true">
+            <path d="M4 12 H60 V36 L32 60 L4 36 Z" fill="none" stroke="#E40521" stroke-width="6" stroke-linejoin="round"/>
+            <path d="M4 12 H60 V20 H4 Z" fill="#E40521"/>
+          </svg>
+          <strong style="color:white; font-family:'Archivo Black'; font-size:18px; letter-spacing:.04em;">DREAM</strong>
+        </div>
+        <p style="margin:0; max-width:320px;">Free, public PreK–12 charter schools in East Harlem and the Bronx. All Kids Can. This Kid Can.</p>
+      </div>
+      <div>
+        <h5>Schools</h5>
+        <a href="#schools">East Harlem</a>
+        <a href="#schools">Highbridge</a>
+        <a href="#schools">Mott Haven</a>
+        <a href="#schools">Charter High School</a>
+      </div>
+      <div>
+        <h5>Discover</h5>
+        <a href="#mission">Mission &amp; Maxims</a>
+        <a href="#outcomes">Our Outcomes</a>
+        <a href="#graduate">DREAM Graduate</a>
+        <a href="#alumni">Alumni Programming</a>
+      </div>
+      <div>
+        <h5>Connect</h5>
+        <a href="https://wearedream.org/our-press-and-awards/" target="_blank" rel="noopener">Press &amp; Awards</a>
+        <a href="https://wearedream.org/enroll/" target="_blank" rel="noopener">Enroll</a>
+        <a href="https://wearedream.org/" target="_blank" rel="noopener">wearedream.org</a>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© DREAM Charter Schools. Splash mockup built for aiEDU collaboration.</span>
+      <span>Play · Learn · Grow</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // sticky nav state
+  const nav = document.getElementById('nav');
+  const onScroll = () => nav.classList.toggle('scrolled', window.scrollY > 6);
+  document.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+
+  // reveal-on-scroll
+  const io = new IntersectionObserver(entries => {
+    for (const e of entries) {
+      if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+    }
+  }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+  // count-up stats
+  const easeOutCubic = t => 1 - Math.pow(1 - t, 3);
+  const animateCount = (el) => {
+    const target = parseFloat(el.dataset.count);
+    const dur = 1400;
+    const t0 = performance.now();
+    const step = (t) => {
+      const p = Math.min(1, (t - t0) / dur);
+      el.textContent = Math.round(target * easeOutCubic(p)).toLocaleString();
+      if (p < 1) requestAnimationFrame(step);
+    };
+    requestAnimationFrame(step);
+  };
+  const co = new IntersectionObserver(entries => {
+    for (const e of entries) {
+      if (e.isIntersecting) { animateCount(e.target); co.unobserve(e.target); }
+    }
+  }, { threshold: 0.4 });
+  document.querySelectorAll('[data-count]').forEach(el => co.observe(el));
+</script>
+</body>
+</html>
